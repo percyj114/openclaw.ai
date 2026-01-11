@@ -55,11 +55,11 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
         <span class="title-main">Clawdbot</span>
       </h1>
 
-      <p class="tagline">EXFOLIATE! EXFOLIATE!</p>
+      <p class="tagline">The AI that actually does things.</p>
 
       <p class="description">
-        Your personal AI assistant, running on your own devices.<br/>
-        WhatsApp · Telegram · Slack · Discord · Teams · Signal · iMessage
+        Clears your inbox, sends emails, manages your calendar, checks you in for flights.<br/>
+        All from WhatsApp, Telegram, or any chat app you already use.
       </p>
     </header>
 
@@ -101,6 +101,45 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
       </a>
     </nav>
 
+    <!-- What It Does -->
+    <section class="features">
+      <h2 class="section-title">
+        <span class="claw-accent">⟩</span> What It Does
+      </h2>
+      <div class="features-grid">
+        <a href="https://docs.clawd.bot/getting-started" target="_blank" rel="noopener" class="feature-card">
+          <div class="feature-icon">🏠</div>
+          <h3 class="feature-title">Runs on Your Machine</h3>
+          <p class="feature-desc">Mac, Windows, or Linux. Anthropic, OpenAI, or local models. Private by default—your data stays yours.</p>
+        </a>
+        <a href="https://docs.clawd.bot/providers" target="_blank" rel="noopener" class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3 class="feature-title">Any Chat App</h3>
+          <p class="feature-desc">Talk to it on WhatsApp, Telegram, Discord, Slack, Signal, or iMessage. Works in DMs and group chats.</p>
+        </a>
+        <a href="https://docs.clawd.bot/session" target="_blank" rel="noopener" class="feature-card">
+          <div class="feature-icon">🧠</div>
+          <h3 class="feature-title">Persistent Memory</h3>
+          <p class="feature-desc">Remembers you and becomes uniquely yours. Your preferences, your context, your AI.</p>
+        </a>
+        <a href="https://docs.clawd.bot/browser" target="_blank" rel="noopener" class="feature-card">
+          <div class="feature-icon">🌐</div>
+          <h3 class="feature-title">Browser Control</h3>
+          <p class="feature-desc">It can browse the web, fill forms, and extract data from any site.</p>
+        </a>
+        <a href="https://docs.clawd.bot/bash" target="_blank" rel="noopener" class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3 class="feature-title">Full System Access</h3>
+          <p class="feature-desc">Read and write files, run shell commands, execute scripts. Full access or sandboxed—your choice.</p>
+        </a>
+        <a href="https://docs.clawd.bot/skills" target="_blank" rel="noopener" class="feature-card">
+          <div class="feature-icon">🧩</div>
+          <h3 class="feature-title">Skills & Plugins</h3>
+          <p class="feature-desc">Extend with community skills or build your own. It can even write its own.</p>
+        </a>
+      </div>
+    </section>
+
     <!-- Quick Start -->
     <section class="quickstart">
       <h2 class="section-title">
@@ -112,18 +151,25 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
           <span class="code-dot"></span>
           <span class="code-dot"></span>
           <div class="mode-switch">
-            <button class="mode-btn active" data-mode="quick">Quick</button>
+            <button class="mode-btn active" data-mode="oneliner">One-liner</button>
+            <button class="mode-btn" data-mode="quick">Quick</button>
             <button class="mode-btn" data-mode="hackable">Hackable</button>
           </div>
-          <div class="pm-switch">
+          <div class="pm-switch" id="pm-switch">
             <button class="pm-btn active" data-pm="npm">npm</button>
             <button class="pm-btn" data-pm="pnpm">pnpm</button>
           </div>
+          <div class="os-switch" id="os-switch" style="display: none;">
+            <button class="os-btn active" data-os="unix">macOS/Linux</button>
+            <button class="os-btn" data-os="windows">Windows</button>
+          </div>
         </div>
-        <pre id="code-quick"><code><span class="code-comment"># Install globally</span>
+        <pre id="code-oneliner"><code><span class="code-comment"># Installs everything you need, then starts setup</span>
+<span class="code-prompt">$</span> <span class="os-cmd">curl -fsSL https://clawd.bot/install.sh | bash</span></code></pre>
+        <pre id="code-quick" style="display: none;"><code><span class="code-comment"># Install Clawdbot</span>
 <span class="code-prompt">$</span> <span class="pm-install">npm i -g clawdbot</span>
 
-<span class="code-comment"># Run the onboarding wizard</span>
+<span class="code-comment"># Start setup</span>
 <span class="code-prompt">$</span> clawdbot onboard</code></pre>
         <pre id="code-hackable" style="display: none;"><code><span class="code-comment"># Clone and build from source</span>
 <span class="code-prompt">$</span> git clone https://github.com/clawdbot/clawdbot.git
@@ -131,11 +177,11 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
 <span class="code-prompt">$</span> <span class="pm-cmd">npm</span> install
 <span class="code-prompt">$</span> <span class="pm-cmd">npm</span> run build
 
-<span class="code-comment"># Run the onboarding wizard</span>
+<span class="code-comment"># Start setup</span>
 <span class="code-prompt">$</span> <span class="pm-cmd">npm</span> run clawdbot onboard</code></pre>
       </div>
       <p class="quickstart-note">
-        Works on macOS, Windows & Linux. Node ≥22 or bun required.
+        Works on macOS, Windows & Linux. The one-liner installs Node.js and everything else for you.
       </p>
     </section>
 
@@ -145,11 +191,21 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
         pnpm: 'pnpm add -g clawdbot'
       };
 
+      const osCmds = {
+        unix: 'curl -fsSL https://clawd.bot/install.sh | bash',
+        windows: 'iwr -useb https://clawd.bot/install.ps1 | iex'
+      };
+
       let currentPm = 'npm';
-      let currentMode = 'quick';
+      let currentOs = 'unix';
+      let currentMode = 'oneliner';
 
       const pmBtns = document.querySelectorAll('.pm-btn');
+      const osBtns = document.querySelectorAll('.os-btn');
       const modeBtns = document.querySelectorAll('.mode-btn');
+      const pmSwitch = document.getElementById('pm-switch');
+      const osSwitch = document.getElementById('os-switch');
+      const codeOneliner = document.getElementById('code-oneliner');
       const codeQuick = document.getElementById('code-quick');
       const codeHackable = document.getElementById('code-hackable');
 
@@ -158,6 +214,18 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
         document.querySelectorAll('.pm-cmd').forEach(cmd => cmd.textContent = currentPm);
         // Update quick mode install command
         document.querySelectorAll('.pm-install').forEach(cmd => cmd.textContent = installCmds[currentPm]);
+        // Update one-liner OS command
+        document.querySelectorAll('.os-cmd').forEach(cmd => cmd.textContent = osCmds[currentOs]);
+      }
+
+      function updateVisibility() {
+        codeOneliner.style.display = currentMode === 'oneliner' ? 'block' : 'none';
+        codeQuick.style.display = currentMode === 'quick' ? 'block' : 'none';
+        codeHackable.style.display = currentMode === 'hackable' ? 'block' : 'none';
+
+        // Show OS switch only for one-liner, PM switch for others
+        osSwitch.style.display = currentMode === 'oneliner' ? 'flex' : 'none';
+        pmSwitch.style.display = currentMode !== 'oneliner' ? 'flex' : 'none';
       }
 
       pmBtns.forEach(btn => {
@@ -169,13 +237,21 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
         });
       });
 
+      osBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentOs = btn.dataset.os;
+          osBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          updateCommands();
+        });
+      });
+
       modeBtns.forEach(btn => {
         btn.addEventListener('click', () => {
           currentMode = btn.dataset.mode;
           modeBtns.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
-          codeQuick.style.display = currentMode === 'quick' ? 'block' : 'none';
-          codeHackable.style.display = currentMode === 'hackable' ? 'block' : 'none';
+          updateVisibility();
         });
       });
     </script>
@@ -392,7 +468,7 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
   .description {
     font-size: 1.1rem;
     color: var(--text-secondary);
-    max-width: 520px;
+    max-width: 780px;
     margin: 0 auto;
     line-height: 1.7;
     animation: fadeInUp 0.8s ease-out 0.3s both;
@@ -470,6 +546,62 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
     color: var(--text-muted);
   }
 
+  /* Features */
+  .features {
+    margin-bottom: 56px;
+    animation: fadeInUp 0.8s ease-out 0.55s both;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  @media (min-width: 640px) {
+    .features-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .feature-card {
+    display: block;
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid var(--border-subtle);
+    background: rgba(10, 15, 26, 0.6);
+    backdrop-filter: blur(12px);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .feature-card:hover {
+    border-color: var(--border-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 77, 77, 0.1);
+  }
+
+  .feature-icon {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+
+  .feature-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+
+  .feature-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
   /* Quick Start */
   .quickstart {
     margin-bottom: 56px;
@@ -526,7 +658,8 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
   }
 
   .mode-switch,
-  .pm-switch {
+  .pm-switch,
+  .os-switch {
     display: flex;
     gap: 4px;
     background: rgba(0, 0, 0, 0.3);
@@ -534,12 +667,14 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
     border-radius: 6px;
   }
 
-  .pm-switch {
+  .pm-switch,
+  .os-switch {
     margin-left: auto;
   }
 
   .mode-btn,
-  .pm-btn {
+  .pm-btn,
+  .os-btn {
     font-family: var(--font-mono);
     font-size: 0.7rem;
     padding: 4px 10px;
@@ -552,11 +687,13 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
   }
 
   .mode-btn:hover,
-  .pm-btn:hover {
+  .pm-btn:hover,
+  .os-btn:hover {
     color: var(--text-secondary);
   }
 
-  .pm-btn.active {
+  .pm-btn.active,
+  .os-btn.active {
     background: var(--coral-bright);
     color: var(--bg-deep);
     font-weight: 600;
