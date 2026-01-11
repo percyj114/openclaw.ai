@@ -301,15 +301,9 @@ main() {
     if [[ "$is_upgrade" == "true" ]]; then
         echo -e "Upgrade complete. Run ${INFO}clawdbot doctor${NC} to check for additional migrations."
     else
-        echo -e "Run ${INFO}clawdbot onboard${NC} to set up your assistant."
+        echo -e "Starting setup..."
         echo ""
-
-        # Ask to run onboard (new installs only)
-        read -p "Start setup now? [Y/n] " -n 1 -r
-        echo
-        if [[ $REPLY =~ ^[Yy]$ ]] || [[ -z $REPLY ]]; then
-            exec clawdbot onboard
-        fi
+        exec clawdbot onboard
     fi
 
     echo ""

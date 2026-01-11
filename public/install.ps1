@@ -145,16 +145,9 @@ function Main {
         Write-Host "clawdbot doctor" -ForegroundColor Cyan -NoNewline
         Write-Host " to check for additional migrations."
     } else {
-        Write-Host "Run " -NoNewline
-        Write-Host "clawdbot onboard" -ForegroundColor Cyan -NoNewline
-        Write-Host " to set up your assistant."
+        Write-Host "Starting setup..." -ForegroundColor Cyan
         Write-Host ""
-
-        # Ask to run onboard (new installs only)
-        $response = Read-Host "Start setup now? [Y/n]"
-        if ($response -eq "" -or $response -eq "Y" -or $response -eq "y") {
-            clawdbot onboard
-        }
+        clawdbot onboard
     }
 }
 
