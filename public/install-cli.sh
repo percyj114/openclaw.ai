@@ -199,7 +199,6 @@ fix_npm_prefix_if_needed() {
 install_clawdbot() {
   emit_json "{\"event\":\"step\",\"name\":\"clawdbot\",\"status\":\"start\",\"version\":\"${CLAWDBOT_VERSION}\"}"
   log "Installing Clawdbot (${CLAWDBOT_VERSION})..."
-  require_bin git
   if [[ "$SET_NPM_PREFIX" -eq 1 ]]; then
     fix_npm_prefix_if_needed
   fi
