@@ -80,6 +80,31 @@ cleanup_legacy_submodules() {
     fi
 }
 
+cleanup_npm_clawdbot_paths() {
+    local npm_root=""
+    npm_root="$(npm root -g 2>/dev/null || true)"
+    if [[ -z "$npm_root" || "$npm_root" != *node_modules* ]]; then
+        return 1
+    fi
+    rm -rf "$npm_root"/.clawdbot-* "$npm_root"/clawdbot 2>/dev/null || true
+}
+
+install_clawdbot_npm() {
+    local spec="$1"
+    local log
+    log="$(mktempfile)"
+    if ! SHARP_IGNORE_GLOBAL_LIBVIPS="$SHARP_IGNORE_GLOBAL_LIBVIPS" npm --loglevel "$NPM_LOGLEVEL" ${NPM_SILENT_FLAG:+$NPM_SILENT_FLAG} --no-fund --no-audit install -g "$spec" 2>&1 | tee "$log"; then
+        if grep -q "ENOTEMPTY: directory not empty, rename .*clawdbot" "$log"; then
+            echo -e "${WARN}→${NC} npm left a stale clawdbot directory; cleaning and retrying..."
+            cleanup_npm_clawdbot_paths
+            SHARP_IGNORE_GLOBAL_LIBVIPS="$SHARP_IGNORE_GLOBAL_LIBVIPS" npm --loglevel "$NPM_LOGLEVEL" ${NPM_SILENT_FLAG:+$NPM_SILENT_FLAG} --no-fund --no-audit install -g "$spec"
+            return $?
+        fi
+        return 1
+    fi
+    return 0
+}
+
 TAGLINES=()
 TAGLINES+=("Your terminal just grew claws—type something and let the bot pinch the busywork.")
 TAGLINES+=("Welcome to the command line: where dreams compile and confidence segfaults.")
@@ -807,12 +832,12 @@ install_clawdbot() {
     fi
 
     if [[ "${CLAWDBOT_VERSION}" == "latest" ]]; then
-        if ! SHARP_IGNORE_GLOBAL_LIBVIPS="$SHARP_IGNORE_GLOBAL_LIBVIPS" npm --loglevel "$NPM_LOGLEVEL" ${NPM_SILENT_FLAG:+$NPM_SILENT_FLAG} --no-fund --no-audit install -g "clawdbot@latest"; then
+        if ! install_clawdbot_npm "clawdbot@latest"; then
             echo -e "${WARN}→${NC} npm install clawdbot@latest failed; retrying clawdbot@next"
-            SHARP_IGNORE_GLOBAL_LIBVIPS="$SHARP_IGNORE_GLOBAL_LIBVIPS" npm --loglevel "$NPM_LOGLEVEL" ${NPM_SILENT_FLAG:+$NPM_SILENT_FLAG} --no-fund --no-audit install -g "clawdbot@next"
+            install_clawdbot_npm "clawdbot@next"
         fi
     else
-        SHARP_IGNORE_GLOBAL_LIBVIPS="$SHARP_IGNORE_GLOBAL_LIBVIPS" npm --loglevel "$NPM_LOGLEVEL" ${NPM_SILENT_FLAG:+$NPM_SILENT_FLAG} --no-fund --no-audit install -g "clawdbot@${CLAWDBOT_VERSION}"
+        install_clawdbot_npm "clawdbot@${CLAWDBOT_VERSION}"
     fi
 
     echo -e "${SUCCESS}✓${NC} Clawdbot installed"
