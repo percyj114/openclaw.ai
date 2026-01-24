@@ -1118,7 +1118,7 @@ EOF
                 fi
             fi
             echo -e "Running ${INFO}clawdbot doctor${NC}..."
-            if CLAWDBOT_UPDATE_IN_PROGRESS=1 "$claw" doctor "${doctor_args[@]:-}" </dev/tty; then
+            if CLAWDBOT_UPDATE_IN_PROGRESS=1 "$claw" doctor "${doctor_args[@]}" </dev/tty; then
                 echo -e "Updating plugins (${INFO}clawdbot plugins update --all${NC})..."
                 CLAWDBOT_UPDATE_IN_PROGRESS=1 "$claw" plugins update --all || true
             else
