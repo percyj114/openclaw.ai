@@ -282,7 +282,7 @@
   {
     "id": "2012212865206272266",
     "author": "pepicrft",
-    "quote": "I finally shipped a Clawdbot plugin for Ralph projects. It scaffolds the Ralph files, compiles the prompt with an explicit RALPH_STATUS block, and only exits when the exit signal and indicators agree. I built it to run Claude Code or Codex through a simple runner config.",
+    "quote": "I finally shipped a Moltbot plugin for Ralph projects. It scaffolds the Ralph files, compiles the prompt with an explicit RALPH_STATUS block, and only exits when the exit signal and indicators agree. I built it to run Claude Code or Codex through a simple runner config.",
     "category": "developer",
     "likes": 16
   },
@@ -323,7 +323,7 @@
   {
     "id": "2010148656687767803",
     "author": "aus_bytes",
-    "quote": "Feels like we are living in the future. Working primarily with Clawdbot to research and build documents, syncing to Notion. Linking calendars and setting up Claude to manage my diary automatically. Building coding projects remotely from my phone. All done via WhatsApp.",
+    "quote": "Feels like we are living in the future. Working primarily with Moltbot to research and build documents, syncing to Notion. Linking calendars and setting up Claude to manage my diary automatically. Building coding projects remotely from my phone. All done via WhatsApp.",
     "category": "productivity",
     "likes": 16
   },
@@ -347,7 +347,7 @@
   {
     "id": "2011077782688985233",
     "author": "LukaRadisic",
-    "quote": "Just built @Clawdbot integration for ralph-tui!\n\nRemote TUI via Tailscale + tmux\n\nTelegram inline status updates\n\nScreenshots on completion",
+    "quote": "Just built @Moltbot integration for ralph-tui!\n\nRemote TUI via Tailscale + tmux\n\nTelegram inline status updates\n\nScreenshots on completion",
     "category": "developer",
     "likes": 2
   },
@@ -361,14 +361,14 @@
   {
     "id": "2010655467400208746",
     "author": "theguti",
-    "quote": "Just used Clawdbot to finally fix my iotawatt setup - took me forever to calibrate it two years ago and a corrupted sdcard + no backup resulted in my neglect for many months.\n\nAsked @clawdbot to help set it up again and voilà! it works. The experience was rather amazing, it had access to the iotawatt box and I pasted screenshots and it guided me.\n\nThe gift that keeps on giving!",
+    "quote": "Just used Moltbot to finally fix my iotawatt setup - took me forever to calibrate it two years ago and a corrupted sdcard + no backup resulted in my neglect for many months.\n\nAsked @clawdbot to help set it up again and voilà! it works. The experience was rather amazing, it had access to the iotawatt box and I pasted screenshots and it guided me.\n\nThe gift that keeps on giving!",
     "category": "smart-home",
     "likes": 14
   },
   {
     "id": "2002334394993025243",
     "author": "jjpcodes",
-    "quote": "Building a language learning tool, driven by Clawdbot and Pi agent.\n\nTeaches you Chinese, tailored \"magically\" to your level, with TTS and STT and pronunciation feedback, and progress tracking/spaced repetition.\n\nBuilt 100% by codex in 2 days or so.",
+    "quote": "Building a language learning tool, driven by Moltbot and Pi agent.\n\nTeaches you Chinese, tailored \"magically\" to your level, with TTS and STT and pronunciation feedback, and progress tracking/spaced repetition.\n\nBuilt 100% by codex in 2 days or so.",
     "category": "developer",
     "likes": 13,
     "images": [
@@ -392,7 +392,7 @@
   {
     "id": "2011807680180957383",
     "author": "xz3dev",
-    "quote": "Clawdbot is now doing a weekly fully automated SEO analysis for me.\n\nFuture is now kiddos",
+    "quote": "Moltbot is now doing a weekly fully automated SEO analysis for me.\n\nFuture is now kiddos",
     "category": "automation",
     "likes": 1,
     "images": [
@@ -433,14 +433,14 @@
   {
     "id": "2010508094313263502",
     "author": "vallver",
-    "quote": "Clawdbot built me a simple Stumbleupon for some of my favourite articles.\n\nFrom my phone, while putting my baby to sleep...\n\nLet me know if you want me to add any features or articles and I'll point @clawdbot to this thread in the morning to do it 😂",
+    "quote": "Moltbot built me a simple Stumbleupon for some of my favourite articles.\n\nFrom my phone, while putting my baby to sleep...\n\nLet me know if you want me to add any features or articles and I'll point @clawdbot to this thread in the morning to do it 😂",
     "category": "developer",
     "likes": 5
   },
   {
     "id": "2010729667540787707",
     "author": "bangkokbuild",
-    "quote": "This is the setup now:\n\n• Claude Code running a Ralph loop, auto-building features\n• My Clawdbot Ema monitoring progress and pinging me to urge me to sleep\n• Me, in bed, using this chance to ask for status updates via Telegram\n\n6 tasks done already",
+    "quote": "This is the setup now:\n\n• Claude Code running a Ralph loop, auto-building features\n• My Moltbot Ema monitoring progress and pinging me to urge me to sleep\n• Me, in bed, using this chance to ask for status updates via Telegram\n\n6 tasks done already",
     "category": "developer",
     "likes": 4,
     "images": [
@@ -477,7 +477,7 @@
   {
     "id": "2011629550875394517",
     "author": "arthurlee",
-    "quote": "341 agent sessions in the past 7 days using @Clawdbot @OpenAICodexCli.\n\nShipped:\n- Client proposal tightened\n- Market research distilled\n- Calendar + Drive wired up\n- Prompt-injection scanner built\n\nWhat would you automate first?",
+    "quote": "341 agent sessions in the past 7 days using @Moltbot @OpenAICodexCli.\n\nShipped:\n- Client proposal tightened\n- Market research distilled\n- Calendar + Drive wired up\n- Prompt-injection scanner built\n\nWhat would you automate first?",
     "category": "developer",
     "likes": 0
   },
@@ -528,7 +528,7 @@
   {
     "id": "2013099774937911694",
     "author": "advait3000",
-    "quote": "Clawdbot is now my primary interface to the digital world. All of my notes, emails, projects, questions, plans, and specs flow through a central system with Discord as the interface. This eliminates tons of friction to go from idea to execution. I don't have to orchestrate a bunch of independent tools anymore. It's just a single interface.",
+    "quote": "Moltbot is now my primary interface to the digital world. All of my notes, emails, projects, questions, plans, and specs flow through a central system with Discord as the interface. This eliminates tons of friction to go from idea to execution. I don't have to orchestrate a bunch of independent tools anymore. It's just a single interface.",
     "category": "productivity",
     "likes": 1
   },
@@ -545,7 +545,7 @@
   {
     "id": "2013811099028557966",
     "author": "astuyve",
-    "quote": "It may not be AGI, but Clawdbot is automatically negotiating with multiple dealers for my next car via browser, email, and imessage and it's amazing.",
+    "quote": "It may not be AGI, but Moltbot is automatically negotiating with multiple dealers for my next car via browser, email, and imessage and it's amazing.",
     "category": "automation",
     "likes": 16,
     "images": [
@@ -612,7 +612,7 @@
   {
     "id": "2013196232181637500",
     "author": "christinetyip",
-    "quote": "I connected mine to an external memory layer - check out the shared-memory skill in clawdhub.\n\nClawdbot helps me build my second brain and selectively shares context and state with my partner's clawdbot.",
+    "quote": "I connected mine to an external memory layer - check out the shared-memory skill in clawdhub.\n\nMoltbot helps me build my second brain and selectively shares context and state with my partner's clawdbot.",
     "category": "integration",
     "likes": 1
   },
@@ -643,7 +643,7 @@
   {
     "id": "2014608153393168425",
     "author": "cedric_chee",
-    "quote": "@Clawdbot is my media studio for the creator. I hooked it up to Codex 5.2 and Minimax-M2.1 (as fallback). Some Skills in action:\n- Kyutai Pocket TTS\n- Whisper audio transcribe\n- Browser use (web scraping, form filling)\n- Twitter ops\n\nI hacked this up in <5 days, all on my mobile while I was on the move.",
+    "quote": "@Moltbot is my media studio for the creator. I hooked it up to Codex 5.2 and Minimax-M2.1 (as fallback). Some Skills in action:\n- Kyutai Pocket TTS\n- Whisper audio transcribe\n- Browser use (web scraping, form filling)\n- Twitter ops\n\nI hacked this up in <5 days, all on my mobile while I was on the move.",
     "category": "creative",
     "likes": 2,
     "images": [
@@ -664,7 +664,7 @@
   {
     "id": "2014797672419340435",
     "author": "nateliason",
-    "quote": "My new favorite way to work with Clawdbot:\n\n1. Tell it we're working on app improvements, it should just take notes\n2. Run through user flows, send screenshots with notes as I find issues\n3. It builds a list of work, adds its own hypotheses\n4. Writes up a full report on what to do\n5. I say \"Go\" and it kicks off Codex agents to attack the different pieces, opening separate PRs\n6. Claude reviews & improves the PRs on Github\n7. Clawd makes a doc of everything we did + what to test\n8. Next time I test, I start with that list to make sure everything worked",
+    "quote": "My new favorite way to work with Moltbot:\n\n1. Tell it we're working on app improvements, it should just take notes\n2. Run through user flows, send screenshots with notes as I find issues\n3. It builds a list of work, adds its own hypotheses\n4. Writes up a full report on what to do\n5. I say \"Go\" and it kicks off Codex agents to attack the different pieces, opening separate PRs\n6. Claude reviews & improves the PRs on Github\n7. Clawd makes a doc of everything we did + what to test\n8. Next time I test, I start with that list to make sure everything worked",
     "category": "developer",
     "likes": 239,
     "images": [
@@ -681,7 +681,7 @@
   {
     "id": "2014147784098681217",
     "author": "astuyve",
-    "quote": "Clawdbot just saved me $4,200 on a car.",
+    "quote": "Moltbot just saved me $4,200 on a car.",
     "category": "automation",
     "likes": 255,
     "images": [
@@ -701,7 +701,7 @@
   {
     "id": "2014880905979167005",
     "author": "localghost",
-    "quote": "Since Clawdbot has an email inbox I can just forward stuff for it to take care of.\n\nHere's Clawdbot turning my email receipts into a parts list.",
+    "quote": "Since Moltbot has an email inbox I can just forward stuff for it to take care of.\n\nHere's Moltbot turning my email receipts into a parts list.",
     "category": "automation",
     "likes": 27,
     "images": [
@@ -721,7 +721,7 @@
   {
     "id": "2014763987683225685",
     "author": "localghost",
-    "quote": "Clawdbot found my HomePods on the network and built a skill to control them.",
+    "quote": "Moltbot found my HomePods on the network and built a skill to control them.",
     "category": "smart-home",
     "likes": 104,
     "images": [
@@ -731,7 +731,7 @@
   {
     "id": "2013908013619319293",
     "author": "Diego_F_Aguirre",
-    "quote": "I'm literally debugging my fitness app mid-workout with Clawdbot.\n\nBetween sets: 'here's the bug' → it patches → I keep moving.\n\nAbsolutely wild 🤯",
+    "quote": "I'm literally debugging my fitness app mid-workout with Moltbot.\n\nBetween sets: 'here's the bug' → it patches → I keep moving.\n\nAbsolutely wild 🤯",
     "category": "developer",
     "likes": 6
   },
