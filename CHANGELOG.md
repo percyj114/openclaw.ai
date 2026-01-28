@@ -6,6 +6,7 @@
 - Fonts: preconnect to Fontshare API/CDN for faster font loading (#16, thanks @wilfriedladenhauf).
 - CLI installer: support git-based installs with safer repo directory handling (#17, thanks @travisp).
 - Installer: skip sudo usage when running as root (#12, thanks @Glucksberg).
+- Integrations: update Microsoft Teams docs link to the channels page (#9, thanks @HesamKorki).
 
 ## 2026-01-16
 
