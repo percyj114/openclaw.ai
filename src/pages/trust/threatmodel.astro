@@ -1,12 +1,10 @@
 ---
 import yaml from 'js-yaml';
-import fs from 'node:fs';
+import threatsYaml from '../../data/threats.yaml?raw';
 
 const isSubdomain = Astro.url.hostname === 'trust.openclaw.ai';
 const trustHref = isSubdomain ? '/' : '/trust';
 const threatModelHref = isSubdomain ? '/threatmodel' : '/trust/threatmodel';
-
-const LOCAL_YAML_PATH = '/Users/jamie/Downloads/trust/threats.yaml';
 
 interface Threat { id: string; name: string; tactic: string; atlas: string; risk: string; category: string; description: string; attackVector: string; affected: string; mitigations: string; residualRisk: string; recommendations: string; }
 interface Tactic { id: string; name: string; atlas: string; color: string; }
@@ -26,10 +24,7 @@ function getRiskColor(risk: string): string {
 
 let data: ThreatData | null = null;
 try {
-  const text = fs.existsSync(LOCAL_YAML_PATH)
-    ? fs.readFileSync(LOCAL_YAML_PATH, 'utf-8')
-    : await fetch('https://raw.githubusercontent.com/openclaw/trust/main/threats.yaml').then(r => { if (!r.ok) throw new Error(`fetch failed: ${r.status}`); return r.text(); });
-  data = yaml.load(text) as ThreatData;
+  data = yaml.load(threatsYaml) as ThreatData;
 } catch { data = null; }
 
 const threats = data?.threats ?? [];
