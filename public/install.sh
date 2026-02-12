@@ -892,7 +892,8 @@ choose_install_method_interactive() {
 
     if [[ -n "$GUM" ]] && gum_is_tty; then
         local header selection
-        header="Detected OpenClaw checkout in: ${detected_checkout}\nChoose install method"
+        header="Detected OpenClaw checkout in: ${detected_checkout}
+Choose install method"
         selection="$("$GUM" choose \
             --header "$header" \
             --cursor-prefix "❯ " \
