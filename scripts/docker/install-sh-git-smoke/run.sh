@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-LOCAL_INSTALL_PATH="/opt/clawdbot-install.sh"
-if [[ -n "${CLAWDBOT_INSTALL_URL:-}" ]]; then
+LOCAL_INSTALL_PATH="/opt/openclaw-install.sh"
+if [[ -n "${OPENCLAW_INSTALL_URL:-}" ]]; then
+  INSTALL_URL="$OPENCLAW_INSTALL_URL"
+elif [[ -n "${CLAWDBOT_INSTALL_URL:-}" ]]; then
   INSTALL_URL="$CLAWDBOT_INSTALL_URL"
 elif [[ -f "$LOCAL_INSTALL_PATH" ]]; then
   INSTALL_URL="file://${LOCAL_INSTALL_PATH}"
 else
-  INSTALL_URL="https://clawd.bot/install.sh"
+  INSTALL_URL="https://openclaw.ai/install.sh"
 fi
 
 curl_install() {
@@ -22,10 +24,10 @@ echo "==> Installer: --help"
 curl_install | bash -s -- --help >/tmp/install-help.txt
 grep -q -- "--install-method" /tmp/install-help.txt
 
-echo "==> Clone Clawdbot repo"
-REPO_DIR="/tmp/moltbot-src"
+echo "==> Clone Openclaw repo"
+REPO_DIR="/tmp/openclaw-src"
 rm -rf "$REPO_DIR"
-git clone --depth 1 https://github.com/moltbot/moltbot.git "$REPO_DIR"
+git clone --depth 1 https://github.com/openclaw/openclaw.git "$REPO_DIR"
 
 echo "==> Verify autodetect defaults to npm (no TTY)"
 (
@@ -39,7 +41,7 @@ echo "==> Verify autodetect defaults to npm (no TTY)"
     cat /tmp/git-detect.out >&2
     exit 1
   fi
-  if ! sed -r 's/\x1b\[[0-9;]*m//g' /tmp/git-detect.out | grep -q "Install method: npm"; then
+  if ! sed -r 's/\x1b\[[0-9;]*m//g' /tmp/git-detect.out | grep -Eq "Install method: npm|Install method[[:space:]]+npm"; then
     echo "ERROR: expected autodetect to default to npm" >&2
     cat /tmp/git-detect.out >&2
     exit 1
@@ -53,18 +55,18 @@ echo "==> Install from Git (using detected checkout)"
 )
 
 echo "==> Verify wrapper exists"
-test -x "$HOME/.local/bin/clawdbot"
+test -x "$HOME/.local/bin/openclaw"
 
-echo "==> Verify clawdbot runs"
+echo "==> Verify openclaw runs"
 export PATH="$HOME/.local/bin:$PATH"
-clawdbot --help >/dev/null
+openclaw --help >/dev/null
 
 echo "==> Verify version matches checkout"
 EXPECTED_VERSION="$(node -e "console.log(JSON.parse(require('fs').readFileSync('${REPO_DIR}/package.json','utf8')).version)")"
-INSTALLED_VERSION="$(clawdbot --version 2>/dev/null | head -n 1 | tr -d '\r')"
+INSTALLED_VERSION="$(openclaw --version 2>/dev/null | head -n 1 | tr -d '\r')"
 echo "installed=$INSTALLED_VERSION expected=$EXPECTED_VERSION"
 if [[ "$INSTALLED_VERSION" != "$EXPECTED_VERSION" ]]; then
-  echo "ERROR: expected clawdbot@$EXPECTED_VERSION, got $INSTALLED_VERSION" >&2
+  echo "ERROR: expected openclaw@$EXPECTED_VERSION, got $INSTALLED_VERSION" >&2
   exit 1
 fi
 
